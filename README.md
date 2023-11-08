@@ -1,4 +1,4 @@
-este plugin foi desenvolvido para receber a quantidades de alunos em um curso do moodle
+#este plugin foi desenvolvido para receber a quantidades de alunos em um curso do moodle
 
 como usar 
 baixe o arquivo zip , no joomla va em extensions , install , upload package files e selecione o arquivo zip
