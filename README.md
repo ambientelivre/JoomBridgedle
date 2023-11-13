@@ -1,5 +1,7 @@
+# plugin Joombridgedle 
 este plugin foi desenvolvido para receber a quantidades de alunos em um curso do moodle
 
+1 baixe o zip pelo link
 como usar 
 baixe o arquivo zip , no joomla va em extensions , install , upload package files e selecione o arquivo zip
 apos isso va em menage e habilite o plugin
