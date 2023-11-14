@@ -26,7 +26,7 @@ class PlgContentAPImoodle extends JPlugin
         $resultado = json_decode(curl_exec($ch));
 
         $numaluno = 0 ;
-        foreach ($resultado as $alunos){
+        foreach ($resultado as $contaarray){
             $numaluno++;
         }
         $conteudo = $numaluno;
@@ -42,7 +42,7 @@ class PlgContentAPImoodle extends JPlugin
         $resultado = json_decode(curl_exec($ch));
 
         $numaluno = 0 ;
-        foreach ($resultado as $alunos){
+        foreach ($resultado as $contaarry){
             $numaluno++;
         }
 
