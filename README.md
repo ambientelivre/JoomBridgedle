@@ -2,7 +2,8 @@
 este plugin foi desenvolvido para receber a quantidades de alunos em um curso do moodle
 ## como instalar
 1 baixe o zip no git , no botão <>CODE
-2 como admistrador no joomla va em extensions , install , upload package files e selecione o arquivo zip
+  
+  2 como admistrador no joomla va em extensions , install , upload package files e selecione o arquivo zip
 apos isso va em extensions , menage e habilite o plugin
 
 ## configuraçoes
