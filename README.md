@@ -6,7 +6,7 @@ este plugin foi desenvolvido para receber a quantidades de alunos em um curso do
 apos isso va em extensions , menage e habilite o plugin
 
 ## configuraçoes
-va em extensions , plugins , e clique no nome do plugin para abrir as configurações
+<br> va em extensions , plugins , e clique no nome do plugin para abrir as configurações <br/>
 insira a url , use esta url como base : http://url/do/seu/site/exemplo.php/?wsfunction="coloque o servico externo"&wstoken="seu token"&wsfunction=core_enrol_get_enrolled_users&moodlewsrestformat=json&courseid="id do seu curso"
 o shortcode é exatamente igual ao que você colocar, é recomendado colocá-lo entre {} para evitar ativações involuntárias
 
