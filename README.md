@@ -1,5 +1,5 @@
 # plugin Joombridgedle 
-este plugin foi desenvolvido para receber a quantidades de alunos em um curso do moodle
+este plugin foi desenvolvido para receber a quantidades de alunos em um curso do moodle , ele pode contar a quantidade de cursos no moodle 
 ## como instalar
 <br> 1 baixe o zip no git , no botão <>CODE <br/>
 2 como admistrador no joomla va em extensions , install , upload package files e selecione o arquivo zip
