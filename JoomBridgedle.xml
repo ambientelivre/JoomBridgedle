@@ -1,7 +1,7 @@
-<?xml version="3.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <extension version="3.1" type="plugin" group="content">
 
-    <name>API Joomla-Moodle</name>
+    <name>JoomBridgedle</name>
     <author>Miguel Domiciano Vieira</author>
     <creationDate>2023-10-31</creationDate>
     <!--<copyright>Codigo Livre</copyright>-->
@@ -9,9 +9,9 @@
     <authorEmail>brasilgameplay06@gmail.com</authorEmail>
     <authorUrl>https://www.instagram.com/miguel_dom_vieira/</authorUrl>
     <version>3.0</version>
-    <description>Cria uma api entre o joomla e o moodle</description>
+    <description>Cria uma conexão api entre o joomla e o moodle</description>
     <files>
-        <filename plugin="APImoodle">APImoodle.php</filename>
+        <filename plugin="JoomBridgedle">JoomBridgedle.php</filename>
     </files>
     <languages>
         <language tag="pt-br">pt-BR.plg_content_api.ini</language>
@@ -30,8 +30,6 @@
 					maxlength="1024"
 		            size="1024"
 		        />
-
-
 				<field
 		            name="URL2"
 			        type="text"	
@@ -40,7 +38,29 @@
 		            description="defina sua URL"
 		            maxlength="1024"
 		            size="1024"
-	            />				
+	            />		
+
+
+				<field
+					name="shortcode1"
+				    type="text"
+					default="{meushortcode1}"
+					label="shortcode1"
+					description="defica o seu shortcode "
+					maxlength="1024"
+		            size="1024"
+		        />
+				
+				<field
+					name="shortcode2"
+				    type="text"
+					default="{meushortcode2}"
+					label="shortcode2"
+					description="defina o seu shortcode"
+					maxlength="1024"
+		            size="1024"
+		        />
+
 			</fieldset>
 		</fields>
 	</config>
