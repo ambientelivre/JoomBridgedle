@@ -25,3 +25,7 @@ apos isso va em extensions , menage e habilite o plugin
 insira a url , use esta url como base : http://url/do/seu/site/exemplo.php/?wsfunction="coloque_o_servico_externo"&wstoken="seu_token"&wsfunction=core_enrol_get_enrolled_users&moodlewsrestformat=json&courseid="id_do_seu_curso"
 <br> o shortcode é exatamente igual ao que você colocar, é recomendado colocá-lo entre {} para evitar ativações involuntárias <br/>
 
+
+# developed by Ambiente Livre
+https://www.ambientelivre.com.br/
+developer Miguel Vieira
