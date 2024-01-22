@@ -28,4 +28,4 @@ insira a url , use esta url como base : http://url/do/seu/site/exemplo.php/?wsfu
 
 # developed by Ambiente Livre
 https://www.ambientelivre.com.br/
-developer Miguel Vieira
+<br>developer Miguel Vieira</br>
