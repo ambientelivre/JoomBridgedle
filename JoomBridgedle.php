@@ -37,10 +37,7 @@ class PlgContentJoomBridgedle extends JPlugin
         $resultado = json_decode(curl_exec($ch));
 
         //conta quantas vezes apareceu a variavel $alunos
-        $numaluno = 0 ;
-        foreach ($resultado as $contaarray){
-            $numaluno++;
-        }
+        $numaluno = count($resultado);
 
         //retorna a quantidade de alunos no curso
         return $numaluno;
@@ -57,10 +54,7 @@ class PlgContentJoomBridgedle extends JPlugin
         $resultado = json_decode(curl_exec($ch));
 
         //conta quantas vezes apareceu a variavel $alunos
-        $numaluno = 0 ;
-        foreach ($resultado as $contaarray){
-            $numaluno++;
-        }
+        $numaluno = count($resultado);
 
         //retorna a quantidade no curso
         return $numaluno;
