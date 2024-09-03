@@ -1,11 +1,11 @@
 <?php
 class JoomBridgedleCacheHelper
 {
-    public static function getCache($moduleId, $key)
+    public static function getCache($moduleId, $key, $expiryTime)
     {
         $db = JFactory::getDbo();
         $query = $db->getQuery(true)
-            ->select($db->quoteName(['data', 'expiry_date']))
+            ->select($db->quoteName(['data', 'cache_date']))
             ->from($db->quoteName('#__joombridgedle'))
             ->where($db->quoteName('module_id') . ' = ' . $db->quote($moduleId))
             ->where($db->quoteName('cache_key') . ' = ' . $db->quote($key));
@@ -13,10 +13,11 @@ class JoomBridgedleCacheHelper
         $result_db = $db->loadResult();
 
         if ($result_db) {
+            $cacheDate = new DateTime($result_db->cache_date);
+            $expiryDate = $cacheDate->modify('+' . $expiryTime . ' minutes');
             $currentDate = JFactory::getDate()->toSql();
-            // Verifica a validade do cache
-            if ($result_db->expiry_date > $currentDate) {
-                return json_decode($result_db->data, true);
+            if ($currentDate < $expiryDate) {
+                return $result_db;
             } else {
                 // remove cache expirado
                 self::clearCache($moduleId, $key);
@@ -24,11 +25,10 @@ class JoomBridgedleCacheHelper
         }
         return false;
     }
-    public static function setCache($moduleId, $key, $data, $expiryTime, $ModuleName)
+    public static function setCache($moduleId, $key, $data)
     {
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
-        $expiryDate = JFactory::getDate('+' . $expiryTime . ' minutes')->toSql();
         $existsQuery = $db->getQuery(true)
             ->select('COUNT(*)')
             ->from($db->quoteName('#__joombridgedle'))
@@ -39,15 +39,13 @@ class JoomBridgedleCacheHelper
 
         if ($exists) {
             $query->update($db->quoteName('#__joombridgedle'))
-                ->set($db->quoteName('data') . ' = ' . $db->quote(json_encode($data)))
+                ->set($db->quoteName('data') . ' = ' . $db->quote($data))
                 ->set($db->quoteName('cache_date') . ' = ' . $db->quote(JFactory::getDate()->toSql()))
-                ->set($db->quoteName('expiry_date') . ' = ' . $db->quote($expiryDate))
-                ->set($db->quoteName('module_name') . ' = ' . $db->quote($ModuleName))
                 ->where($db->quoteName('module_id') . ' = ' . $db->quote($moduleId))
                 ->where($db->quoteName('cache_key') . ' = ' . $db->quote($key));
         } else {
-            $columns = array('module_id', 'cache_key', 'data', 'cache_date', 'expiry_date');
-            $values = array($db->quote($moduleId), $db->quote($key), $db->quote(json_encode($data)), $db->quote(JFactory::getDate()->toSql()), $db->quote($expiryDate));
+            $columns = array('module_id', 'cache_key', 'data', 'cache_date');
+            $values = array($db->quote($moduleId), $db->quote($key), $db->quote($data), $db->quote(JFactory::getDate()->toSql()));
 
             $query->insert($db->quoteName('#__joombridgedle'))
                 ->columns($db->quoteName($columns))

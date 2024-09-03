@@ -5,15 +5,14 @@ class ModJoomBridgedleHelper
     public static function getData($params, $module)
     {
         $expiryTime = $params->get('cache');
-        $Key = 'joombridgedle_' . $params->get('function');
+        $key = 'joombridgedle_' . $params->get('function');
         $moduleId = $module->id;
-        $moduleName = $module->name;
 
         // Verifica se tem cache
-        $cache = JoomBridgedleCacheHelper::getCache($moduleId, $Key);
+        $cache = JoomBridgedleCacheHelper::getCache($moduleId, $key, $expiryTime);
 
         if ($cache !== false) {
-            $result = $cache;
+            return $cache;
         } else {
             include_once dirname(__FILE__) . '/codes.php';
             $function = $params->get('function');
@@ -33,7 +32,7 @@ class ModJoomBridgedleHelper
                     $result = ModJoomBridgedleCodes::getHacks($params);
                     break;
             }
-            JoomBridgedleCacheHelper::setCache($moduleId, $cacheKey, $result, $expiryTime, $moduleName);
+            JoomBridgedleCacheHelper::setCache($moduleId, $key, $result);
             return $result;
         }
     }
